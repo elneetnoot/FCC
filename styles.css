@@ -1,0 +1,16 @@
+#app {
+    border: 5px solid black;
+    width: 650px;
+    height: 300px;
+    border-radius: 20px;
+    background-color: #ADD8E6;
+}
+
+#author {
+    font-weight: 700;
+}
+
+#buttons {
+    position: relative;
+    bottom: 0;
+}
