@@ -1,0 +1,28 @@
+numberHandler {
+
+
+
+    currentVal.length > 19 ? raiseManyNumberError  
+    : double zeros ? do nothing
+    : setState({
+       currentVal:  currentVal + e
+       prevVal: 
+       formula: formula + e
+       lastClicked: e
+    })
+
+
+}
+
+operatorHandler {
+    if lastclicked != "num" && its != -:
+        remove last and add new
+    setstate({
+        currentVal: e
+        lastClicked: op
+    })
+    
+}
+
+
+PREVALV!
