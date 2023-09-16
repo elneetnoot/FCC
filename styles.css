@@ -1,0 +1,19 @@
+#display {
+    border: 2px solid#5A5A5A;
+    color: white;
+    background-color: black;
+}
+#app {
+    height: 400px;
+    width: 200px;
+    margin: auto;
+}
+#calculator {
+    height: 250px;
+    width: 200px;
+    background-color: black;
+}
+.calcbutton {
+    width: 49px;
+    height: 49px;
+}
