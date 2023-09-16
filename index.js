@@ -8,7 +8,7 @@ function raiseCommaError() {
     console.error("More than one comma sign")
 }
 
-# Set const object with defaultstate
+# Default state for calculator
 const DEFAULTSTATE = {currentVal: "0",
                       prevVal: "0",
                       formula: "",
@@ -31,7 +31,8 @@ class App extends React.Component {
     numberHandler(e) {
         const curr = this.state.currentVal;
         const targ = e.target.value;
-
+	
+	# Check for too many digits, double comma signs and remove starting zero if necessary
         curr.length > 19 ? raiseDigitNumberError()
         : targ === "0" && curr === "0" ? raiseZeroError() 
         : (curr?.match(/\./g)?.length ?? 0) >= 1 && targ === "." ? raiseCommaError()
@@ -50,6 +51,7 @@ class App extends React.Component {
             })
     }
     operatorHandler(e) {
+	# Add operator to formula
         let formul = this.state.formula;
         const targ = e.target.value;
         if (this.state.lastClicked != "num" && this.state.lastClicked != "-" && targ != "-") {
@@ -66,6 +68,7 @@ class App extends React.Component {
         })        
     }
     equalsHandler() {
+	# Filter out double operators and calculate final, set formula to sum for further calculations
         const filtered = this.state.formula.match(/(\*|\+|\/|-)?(\.|\-)?\d+/g).join('');
         const sum = eval(filtered);
         this.setState({
@@ -77,8 +80,7 @@ class App extends React.Component {
     
 
     render() {
-        console.log(this.state.formula);
-        console.log(this.state.lastClicked);
+	# Render a table including a display and four rows of number & operator buttons
         return (
             <table id="calculator">
                 <div id="display">{this.state.currentVal}</div>
@@ -115,5 +117,5 @@ class App extends React.Component {
         )
     }
 }
-
+# Render app to div id="app"
 ReactDOM.render(<App/>, document.getElementById("app"))
